@@ -57,7 +57,7 @@ class Bubble extends React.Component {
     // Since we have 5 available levels, we need to subract 5 - level to convert the level value to a z-index
     // that will push higher-level bubbles to the back so they're displayed behind lower-level bubbles and don't
     // accidentally cover them up.
-    var bubbleLevel = 5 - this.props.bubbleData.level;
+    var bubbleLevel = 6 - this.props.bubbleData.level;
 
     var bubbleColor = this.props.bubbleData.color;
 
