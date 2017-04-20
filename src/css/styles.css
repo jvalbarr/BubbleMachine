@@ -58,6 +58,15 @@ p.user-tips::first-letter {
 .square {
 }
 
+.triangle {
+  width: 0;
+  height: 0;
+  color: yellow;
+  border-left: 70px solid #eee;
+  border-right: 70px solid #eee;
+  border-bottom: 60px solid black;
+}
+
 .bubble.highlight {
   opacity: 1.0;
   box-shadow: 5px -5px 5px #888888;
@@ -67,7 +76,6 @@ p.user-tips::first-letter {
 .bubble.preview {
   opacity: 0.5;
   box-shadow: 5px -5px 5px #888888;
-  border-color: #555;
 }
 
 .bubble-row.selected {
