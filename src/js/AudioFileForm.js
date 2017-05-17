@@ -69,14 +69,24 @@ class AudioFileForm extends React.Component {
     var reader = new FileReader();
     var file = e.target.files[0];
 
+
     reader.onload = function(upload) {
       self.setState({
         data_uri: upload.target.result,
       });
     }
-    reader.readAsDataURL(file);
 
-    this.setState({ current_time: 0.0 });
+    var user_confirm = confirm("Press 'OK' to delete all previous Bubbles. Press cancel to keep them.");
+
+    if(user_confirm) {
+      ee.emit("bubble:deleteAllBubbles");
+      reader.readAsDataURL(file);
+      this.setState({ current_time: 0.0 });
+    }
+    else{
+      reader.readAsDataURL(file);
+      this.setState({ current_time: 0.0 });
+    };
   }
 
   startLoadingAudio = (e) => {
@@ -160,7 +170,7 @@ class AudioFileForm extends React.Component {
 
         <form className="form-inline audioForm" onSubmit={this.handleSubmit} encType="multipart/form-data">
           <div className="form-group">
-            <label htmlFor="audio_file_upload">Audio file: </label>
+            <label htmlFor="audio_file_upload">Audio File: </label>
             <input ref="audio_file_upload" type="file" onChange={this.handleFile} />
           </div>
         </form>

@@ -61,10 +61,12 @@ p.user-tips::first-letter {
 .triangle {
   width: 0;
   height: 0;
-  color: yellow;
+  color: #eee;/*
+  border-left: 70px solid rgba(0,0,0,0);
+  border-right: 70px solid rgba(0,0,0,0);*/
   border-left: 70px solid #eee;
   border-right: 70px solid #eee;
-  border-bottom: 60px solid black;
+  border-bottom: 60px solid black; //this.props.bubbleData.color;
 }
 
 .bubble.highlight {

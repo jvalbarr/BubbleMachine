@@ -66,8 +66,14 @@ class AnnotationTable extends React.Component {
           <td style={rowStyle}></td>
           <td>{bubble.level}</td>
           <td>{bubble.title}</td>
-          <td>{bubble.start_time}</td>
-          <td>{bubble.stop_time}</td>
+          <td>{Math.floor(bubble.start_time/60)}m:
+               {Math.floor(bubble.start_time%60)}s;
+               {Math.floor(bubble.start_time*10%60)}ms
+          </td>
+          <td>{Math.floor(bubble.stop_time/60)}m:
+               {Math.floor(bubble.stop_time%60)}s;
+               {Math.floor(bubble.stop_time*10%60)}ms
+          </td>
           <td><a onClick={() => this.handleClick(bubble)} ><i className="glyphicon glyphicon-play"/></a> </td>
           <td><a onClick={() => this.handleEdit(bubble)}> <i className="glyphicon glyphicon-pencil"/></a> </td>
           <td><a onClick={() => this.handleDelete(bubble)}> <i className="glyphicon glyphicon-trash"/></a> </td>
