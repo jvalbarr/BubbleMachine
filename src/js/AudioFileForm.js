@@ -69,7 +69,6 @@ class AudioFileForm extends React.Component {
     var reader = new FileReader();
     var file = e.target.files[0];
 
-
     reader.onload = function(upload) {
       self.setState({
         data_uri: upload.target.result,
@@ -159,13 +158,15 @@ class AudioFileForm extends React.Component {
         </div>
 
         <div id="playbackTimeCounter" className="pull-right">
-        {Math.floor(this.state.current_time/60)}m:
-        {Math.floor(this.state.current_time%60)}s;
-        {Math.floor(this.state.current_time*10%10)}ms
-         /
-        {Math.floor(this.props.audioDuration/60)}m:
-        {Math.floor(this.props.audioDuration%60)}s;
-        {this.props.audioDuration*10%10}ms
+        {Math.floor(this.state.current_time/3600)}:
+        {Math.floor(this.state.current_time/60)}:
+        {Math.floor(this.state.current_time%60)};
+        {Math.floor(this.state.current_time*10%10)}/
+
+        {Math.floor(this.props.audioDuration/3600)}:
+        {Math.floor(this.props.audioDuration/60)}:
+        {Math.floor(this.props.audioDuration%60)};
+        {this.props.audioDuration*10%10}
         </div>
 
         <form className="form-inline audioForm" onSubmit={this.handleSubmit} encType="multipart/form-data">

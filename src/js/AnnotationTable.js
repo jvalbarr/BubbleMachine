@@ -59,6 +59,16 @@ class AnnotationTable extends React.Component {
         if (bubble.id == this.state.active_bubble.id) rowClass += " selected";
       }
 
+      var start_time_hours = Math.floor(bubble.start_time/3600);
+      var start_time_minutes = Math.floor(bubble.start_time/60);
+      var start_time_seconds = Math.floor(bubble.start_time%60);
+      var start_time_milliseconds = Math.floor(bubble.start_time*10%60);
+
+      var stop_time_hours = Math.floor(bubble.start_time/3600);
+      var stop_time_minutes = Math.floor(bubble.stop_time/60);
+      var stop_time_seconds = Math.floor(bubble.stop_time%60);
+      var stop_time_milliseconds = Math.floor(bubble.stop_time*10%60);
+
       return (
         <tr key={bubble.id} className={rowClass} >
           <td>{bubbleNumber}</td>
@@ -66,13 +76,11 @@ class AnnotationTable extends React.Component {
           <td style={rowStyle}></td>
           <td>{bubble.level}</td>
           <td>{bubble.title}</td>
-          <td>{Math.floor(bubble.start_time/60)}m:
-               {Math.floor(bubble.start_time%60)}s;
-               {Math.floor(bubble.start_time*10%60)}ms
+          <td>
+            {start_time_hours}:{start_time_minutes}:{start_time_seconds};{start_time_milliseconds}
           </td>
-          <td>{Math.floor(bubble.stop_time/60)}m:
-               {Math.floor(bubble.stop_time%60)}s;
-               {Math.floor(bubble.stop_time*10%60)}ms
+          <td>
+            {stop_time_hours}:{stop_time_minutes}:{stop_time_seconds};{stop_time_milliseconds}
           </td>
           <td><a onClick={() => this.handleClick(bubble)} ><i className="glyphicon glyphicon-play"/></a> </td>
           <td><a onClick={() => this.handleEdit(bubble)}> <i className="glyphicon glyphicon-pencil"/></a> </td>
